@@ -20,7 +20,11 @@ public class Database implements BaseDAO<Data, ConnectionSource> {
     private static OrmLiteBaseDAOImpl<Data> baseDAO = new OrmLiteBaseDAOImpl<Data>(Data.class);
 
     public static void init() {
-        databaseModule = new SQLiteDatabaseModule(DATABASE);
+        init(DATABASE);
+    }
+
+    public static void init(String databaseName) {
+        databaseModule = new SQLiteDatabaseModule(databaseName);
         databaseModule.register(baseDAO);
         databaseModule.init(clearOnInit);
     }
