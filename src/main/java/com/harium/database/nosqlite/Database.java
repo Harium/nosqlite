@@ -77,9 +77,9 @@ public class Database implements BaseDAO<Data, ConnectionSource> {
         return null;
     }
 
-    public static void add(String key, String value) {
+    public static void put(String key, String value) {
         Data data = new Data(key, value);
-        baseDAO.create(data);
+        baseDAO.createOrUpdate(data);
     }
 
     public static String get(String key) {

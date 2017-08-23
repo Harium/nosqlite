@@ -13,21 +13,30 @@ public class DatabaseTest {
     }
 
     @Test
-    public void testAddColumn() {
+    public void testPutColumn() {
         Assert.assertEquals(0L, Database.count());
-        Database.add("key", "value");
+        Database.put("key", "value");
         Assert.assertEquals(1L, Database.count());
     }
 
     @Test
     public void testGetColumn() {
-        Database.add("key2", "value2");
+        Database.put("key2", "value2");
         Assert.assertEquals("value2", Database.get("key2"));
     }
 
     @Test
+    public void testUpdateColumn() {
+        Assert.assertEquals(0L, Database.count());
+        Database.put("key", "value");
+        Assert.assertEquals(1L, Database.count());
+        Database.put("key", "value2");
+        Assert.assertEquals("value2", Database.get("key"));
+    }
+
+    @Test
     public void testDeleteColumn() {
-        Database.add("key3", "value3");
+        Database.put("key3", "value3");
         Assert.assertEquals(1L, Database.count());
         Database.delete("key3");
         Assert.assertEquals(0L, Database.count());

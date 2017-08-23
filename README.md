@@ -7,13 +7,13 @@ NoSqlite is built over SQLite
 <dependency>
   <groupId>com.harium.database</groupId>
   <artifactId>nosqlite</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 
 ## How to Use It
 ```
 Database.init();
-Database.add("key", "value");
+Database.put("key", "value");
 Database.get("key"); // Return "value"
 ```
