@@ -22,6 +22,7 @@ public abstract class BaseDatabase<T> implements BaseDAO<Data, T> {
     @Override
     public int create(Data item) {
         item.setCreatedAt(new Date().getTime());
+        item.setUpdatedAt(new Date().getTime());
         return baseDAO.create(item);
     }
 
@@ -59,6 +60,7 @@ public abstract class BaseDatabase<T> implements BaseDAO<Data, T> {
 
     public static void put(String key, String value) {
         Data data = new Data(key, value);
+        data.setUpdatedAt(new Date().getTime());
         baseDAO.createOrUpdate(data);
     }
 
@@ -73,5 +75,9 @@ public abstract class BaseDatabase<T> implements BaseDAO<Data, T> {
 
     public static void delete(String key) {
         baseDAO.delete(new Data(key, ""));
+    }
+
+    public void dispose() {
+
     }
 }

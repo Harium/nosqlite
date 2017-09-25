@@ -5,6 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "collection")
 public class Data {
+    public static final String TABLE_NAME = "collection";
     public static final String COLUMN_KEY = "key";
     public static final String COLUMN_VALUE = "value";
     public static final String COLUMN_CREATED_AT = "created_at";
